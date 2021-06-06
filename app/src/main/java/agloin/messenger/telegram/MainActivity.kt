@@ -1,11 +1,14 @@
 package agloin.messenger.telegram
 
 import agloin.messenger.telegram.databinding.ActivityMainBinding
+import agloin.messenger.telegram.ui.ChatsFragment
+import agloin.messenger.telegram.ui.SettingsFragment
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.Fragment
 import com.mikepenz.materialdrawer.AccountHeader
 import com.mikepenz.materialdrawer.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.Drawer
@@ -18,7 +21,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var mDriver: Drawer
+    private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
     private lateinit var mToolBar: Toolbar
 
@@ -28,8 +31,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
     }
 
+    private fun fragmentsManager(fragment: Fragment, goBackStack: Boolean?) {
+        supportFragmentManager.beginTransaction().replace(R.id.dataContainer, fragment).commit()
+    }
+
     override fun onStart() {
         super.onStart()
+//        fragmentsManager(ChatsFragment())
+        supportFragmentManager.beginTransaction().replace(R.id.dataContainer, ChatsFragment()).commit()
         initFields()
         initFunc()
     }
@@ -41,7 +50,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createDrawer() {
-        mDriver = DrawerBuilder()
+        mDrawer = DrawerBuilder()
             .withActivity(this)
             .withToolbar(mToolBar)
             .withActionBarDrawerToggle(true)
@@ -90,6 +99,12 @@ class MainActivity : AppCompatActivity() {
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_menu_settings),
 
+                PrimaryDrawerItem().withIdentifier(107)
+                    .withIconTintingEnabled(true)
+                    .withName("Создать группу")
+                    .withSelectable(false)
+                    .withIcon(R.drawable.ic_menu_create_groups),
+
                 DividerDrawerItem(),
 
                 PrimaryDrawerItem().withIdentifier(108)
@@ -104,16 +119,22 @@ class MainActivity : AppCompatActivity() {
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_menu_invate),
 
-                ).withOnDrawerItemClickListener(object :Drawer.OnDrawerItemClickListener {
+                ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
                 override fun onItemClick(
                     view: View?,
                     position: Int,
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show()
+                    when (position){
+                        7 -> supportFragmentManager
+                            .beginTransaction()
+                            .addToBackStack(null) // Добавляем возможность вернуться на предыдущий экран
+                            .replace(R.id.dataContainer, SettingsFragment()) // Запускаем наш дата контейнер, в котором будет наш фрагмент Settings
+                            .commit()
+                    }
                     return false
                 }
-
             }).build()
     }
 
