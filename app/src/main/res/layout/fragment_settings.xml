@@ -3,7 +3,8 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ui.SettingsFragment">
+             tools:context=".ui.fragments.SettingsFragment"
+             android:id="@+id/fragment_settingsLayout">
     <TextView
             android:text="Настройки"
             android:id="@+id/settings"

@@ -3,7 +3,9 @@
              xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
-             tools:context=".ui.ChatsFragment" android:id="@+id/fragment_chatsLayout" android:visibility="visible"
+             tools:context=".ui.fragments.ChatsFragment"
+             android:id="@+id/fragment_chatsLayout"
+             android:visibility="visible"
              tools:visibility="visible">
     <TextView
             android:text="Чаты"
