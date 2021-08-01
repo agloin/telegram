@@ -11,6 +11,7 @@
     <color name="colorPrimaryDark">#007ACC</color>
     <color name="colorAccent">#FFFFFFFF</color>
     <color name="colorAccentDark">#DDDBDB</color>
+    <color name="colorGrey">#837E7E</color>
 
     <!-- Material DEFAULT colors -->
     <color name="material_drawer_primary">#2196F3</color>
