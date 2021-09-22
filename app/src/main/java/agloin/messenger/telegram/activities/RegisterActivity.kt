@@ -3,6 +3,7 @@ package agloin.messenger.telegram.activities
 import agloin.messenger.telegram.R
 import agloin.messenger.telegram.databinding.ActivityRegisterBinding
 import agloin.messenger.telegram.ui.fragments.EnterPhoneNumberFragment
+import agloin.messenger.telegram.ui.utilits.replaceFragment
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -26,8 +27,6 @@ class RegisterActivity : AppCompatActivity() {
         mToolbar = mBinding.registerToolBar
         setSupportActionBar(mToolbar)
         title = getString(R.string.register_title_your_phone)
-        supportFragmentManager.beginTransaction()
-            .add(R.id.registerDataContainer, EnterPhoneNumberFragment())
-            .commit()
+        replaceFragment(EnterPhoneNumberFragment())
     }
 }

@@ -3,6 +3,7 @@ package agloin.messenger.telegram.ui.objects
 import agloin.messenger.telegram.MainActivity
 import agloin.messenger.telegram.R
 import agloin.messenger.telegram.ui.fragments.SettingsFragment
+import agloin.messenger.telegram.ui.utilits.replaceFragment
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
@@ -101,10 +102,7 @@ class AppDrawer(
                 ): Boolean {
                     Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show()
                     when (position){
-                        7 -> mainActivity.supportFragmentManager.beginTransaction()
-                            .addToBackStack(null) // Добавляем возможность вернуться на предыдущий экран
-                            .replace(R.id.dataContainer, SettingsFragment()) // Запускаем наш дата контейнер, в котором будет наш фрагмент Settings
-                            .commit()
+                        7 -> mainActivity.replaceFragment(SettingsFragment())
                     }
                     return false
                 }

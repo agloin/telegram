@@ -1,6 +1,7 @@
 package agloin.messenger.telegram.ui.fragments
 
 import agloin.messenger.telegram.R
+import agloin.messenger.telegram.ui.utilits.AppTextWatcher
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
@@ -12,24 +13,12 @@ class EnterCodeFragment : Fragment(R.layout.fragment_enter_code) {
     override fun onStart() {
         super.onStart()
 
-        register_input_code.addTextChangedListener(object: TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                val string = register_input_code.text.toString()
+        register_input_code.addTextChangedListener(AppTextWatcher {
+            val string = register_input_code.text.toString()
 
-                if (string.length == 5) {
-                    verifyCode()
-
-                }
+            if (string.length == 5) {
+                verifyCode()
             }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-
-            }
-
         })
     }
 

@@ -4,6 +4,8 @@ import agloin.messenger.telegram.activities.RegisterActivity
 import agloin.messenger.telegram.databinding.ActivityMainBinding
 import agloin.messenger.telegram.ui.fragments.ChatsFragment
 import agloin.messenger.telegram.ui.objects.AppDrawer
+import agloin.messenger.telegram.ui.utilits.replaceActivity
+import agloin.messenger.telegram.ui.utilits.replaceFragment
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -37,18 +39,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        if (false) {
+        if (true) {
             setSupportActionBar(mToolBar)
             mAppDrawer.create()
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.dataContainer,
-                    ChatsFragment()
-                ).commit()
+            replaceFragment(ChatsFragment())
         } else{
-            val intent = Intent(this, RegisterActivity::class.java)
-
-            startActivity(intent)
+            replaceActivity(RegisterActivity())
         }
 
 

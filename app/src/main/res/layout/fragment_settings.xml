@@ -28,7 +28,7 @@
                 android:layout_marginStart="@dimen/horizontal_margin"/>
 
         <TextView
-                android:id="@+id/settings_username"
+                android:id="@+id/settings_full_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorAccent"
@@ -99,7 +99,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/settings_btn_change_login"
+            android:id="@+id/settings_btn_change_username"
             android:background="@drawable/ripple_effect"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -108,22 +108,22 @@
 
 
         <TextView
-                android:id="@+id/settings_login"
+                android:id="@+id/settings_username"
                 android:text="@string/setting_default_login"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/settings_btn_change_login"
+                app:layout_constraintTop_toTopOf="@+id/settings_btn_change_username"
                 style="@style/normalText"/>
 
         <TextView
-                android:id="@+id/settings_label_login"
+                android:id="@+id/settings_label_username"
                 android:text="@string/settings_label_login"
-                app:layout_constraintTop_toBottomOf="@+id/settings_login"
+                app:layout_constraintTop_toBottomOf="@+id/settings_username"
                 style="@style/smallText"
                 tools:ignore="MissingConstraints"/>
 
         <View
-                app:layout_constraintTop_toBottomOf="@+id/settings_label_login"
+                app:layout_constraintTop_toBottomOf="@+id/settings_label_username"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 style="@style/separator"/>
@@ -135,7 +135,7 @@
             android:id="@+id/settings_btn_change_bio"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_login"
+            app:layout_constraintTop_toBottomOf="@id/settings_btn_change_username"
             style="@style/settingsButtons">
 
         <TextView
