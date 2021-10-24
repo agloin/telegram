@@ -4,12 +4,14 @@ import agloin.messenger.telegram.activities.RegisterActivity
 import agloin.messenger.telegram.databinding.ActivityMainBinding
 import agloin.messenger.telegram.ui.fragments.ChatsFragment
 import agloin.messenger.telegram.ui.objects.AppDrawer
+import agloin.messenger.telegram.ui.utilits.AUTH
 import agloin.messenger.telegram.ui.utilits.replaceActivity
 import agloin.messenger.telegram.ui.utilits.replaceFragment
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,13 +25,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
     }
 
-//    private fun fragmentsManager(fragment: Fragment, goBackStack: Boolean?) {
-//        supportFragmentManager.beginTransaction().replace(R.id.dataContainer, fragment).commit()
-//    }
-
     override fun onStart() {
         super.onStart()
-//        fragmentsManager(ChatsFragment())
         supportFragmentManager
             .beginTransaction()
             .replace(R.id.dataContainer, ChatsFragment())
@@ -39,11 +36,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        if (true) {
+        if (AUTH.currentUser != null) {
             setSupportActionBar(mToolBar)
             mAppDrawer.create()
-            replaceFragment(ChatsFragment())
-        } else{
+            replaceFragment(ChatsFragment(), false)
+        } else {
             replaceActivity(RegisterActivity())
         }
 
@@ -54,5 +51,6 @@ class MainActivity : AppCompatActivity() {
     private fun initFields() {
         mToolBar = mBinding.mainToolBar
         mAppDrawer = AppDrawer(this, mToolBar)
+        AUTH = FirebaseAuth.getInstance()
     }
 }

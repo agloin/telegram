@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "721342289508",
+    "project_id": "telegram-43d61",
+    "storage_bucket": "telegram-43d61.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:721342289508:android:3289ed03833f7f6de83171",
+        "android_client_info": {
+          "package_name": "agloin.messenger.telegram"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "721342289508-ereftabsq9vga88ie3m8c6d58v8cehg6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJl9XqvWWC1JYfY7ioXq7K70p0Otk22cc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "721342289508-ereftabsq9vga88ie3m8c6d58v8cehg6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

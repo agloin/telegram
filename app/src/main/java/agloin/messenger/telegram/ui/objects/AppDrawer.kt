@@ -25,7 +25,7 @@ class AppDrawer(
     private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
 
-    fun create(){
+    fun create() {
         createHeader()
         createDrawer()
     }
@@ -101,7 +101,7 @@ class AppDrawer(
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     Toast.makeText(applicationContext, position.toString(), Toast.LENGTH_SHORT).show()
-                    when (position){
+                    when (position) {
                         7 -> mainActivity.replaceFragment(SettingsFragment())
                     }
                     return false

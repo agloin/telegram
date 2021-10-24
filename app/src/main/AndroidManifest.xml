@@ -10,7 +10,7 @@
             android:supportsRtl="true"
             android:theme="@style/LightTheme">
         <activity android:name=".activities.RegisterActivity"
-        android:windowSoftInputMode="stateVisible|adjustResize">
+                  android:windowSoftInputMode="stateVisible|adjustResize">
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
